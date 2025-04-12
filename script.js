@@ -1,5 +1,5 @@
 //Random Quotes Api URL
-const quoteApiUrl = "https://api.quotable.io/random?minLength=80&maxLength=100";
+const quoteApiUrl = "https://dummyjson.com/quotes/random";
 const quoteSection = document.getElementById("quote");
 const userInput = document.getElementById("quote-input");
 let quote = "";
@@ -16,7 +16,7 @@ const renderNewQuote = async () => {
   let data = await response.json();
 
   //Access quote
-  quote = data.content;
+  quote = data.quote;
 
   //Array of characters in the quote
   let arr = quote.split("").map((value) => {
