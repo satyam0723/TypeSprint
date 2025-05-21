@@ -24,13 +24,13 @@ const renderNewQuote = async () => {
     return "<span class='quote-chars'>" + value + "</span>";
   });
   //join array for displaying
-  quoteSection.innerHTML += arr.join("");
+  quoteSection.innerHTML = arr.join("");
 };
 
 //Logic for comparing input words with quote
 userInput.addEventListener("input", () => {
   let quoteChars = document.querySelectorAll(".quote-chars");
-  //Create an arrat from received span tags
+  //Create an array from received span tags
   quoteChars = Array.from(quoteChars);
 
   //array of user input characters
@@ -96,9 +96,9 @@ const displayResult = () => {
   document.getElementById("stop-test").style.display = "none";
   userInput.disabled = true;
   let timeTaken = 1;
-  if (time != 0) {
-    timeTaken = (60 - time) / 100;
-  }
+  timeTaken = (60 - time) / 60;
+  if (timeTaken === 0) timeTaken = 1;
+
   document.getElementById("wpm").innerText =
     (userInput.value.length / 5 / timeTaken).toFixed(2) + " wpm";
   document.getElementById("accuracy").innerText =
